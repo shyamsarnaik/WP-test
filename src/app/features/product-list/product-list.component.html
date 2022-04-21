@@ -1,0 +1,36 @@
+<div class="list-wrapper">
+
+  <mat-card class="filter-card">
+    <mat-card-content>
+      <p>
+        <input type="text">
+      </p>
+    </mat-card-content>
+  </mat-card>
+
+  <div class="content" fxLayout="row wrap" fxLayoutGap="10px" fxLayoutAlign="flex-start" fxLayout.xs="column"
+    fxLayoutAlign="space-between">
+    <mat-card class="p-card" fxFlex="0 1 calc(25%-10px)" fxFlex.xs="100" *ngFor="let product of products; let i = index"
+      style="margin:10px 5px">
+      <mat-card-header class="p-header">
+        <mat-card-title>{{product.title}}</mat-card-title>
+        <mat-card-subtitle class="price">{{product.price}} {{currency}}</mat-card-subtitle>
+        <button mat-icon-button class="favorite-icon" [color]="isproductfav(product) ? 'primary': 'secondary'"
+          (click)="addRemovefavourite(product, i)">
+          <mat-icon>favorite</mat-icon>
+        </button>
+      </mat-card-header>
+      <img mat-card-image [src]="product.image">
+      <mat-card-content>
+        <p class="product-description">
+          {{product.description}}
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button>LIKE</button>
+        <button mat-button>SHARE</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+
+</div>

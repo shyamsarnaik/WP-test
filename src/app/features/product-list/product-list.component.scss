@@ -1,0 +1,40 @@
+.list-wrapper {
+  padding: 14px;
+
+  .p-card {
+    max-width: 400px;
+    margin-bottom: 10px;
+  }
+
+  .mat-card-image {
+    height: 18rem;
+  }
+
+  .price {
+    font-size: 12px;
+    color: #607D8B;
+  }
+
+  .product-description {
+    overflow: hidden;
+    color: #607D8B;
+    font-size: .875rem;
+    height: 85px;
+    word-wrap: break-word;
+  }
+
+  .filter-card {
+    margin-bottom: 14px;
+  }
+
+}
+
+::ng-deep mat-card-header {
+  &.p-header {
+    justify-content: space-between;
+
+    .mat-card-header-text {
+      margin: 0;
+    }
+  }
+}
