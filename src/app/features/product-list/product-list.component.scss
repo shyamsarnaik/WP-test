@@ -7,11 +7,11 @@
   }
 
   .mat-card-image {
-    height: 18rem;
+    height: 15.9rem;
   }
 
   .price {
-    font-size: 12px;
+    font-size: 14px;
     color: #607D8B;
   }
 
@@ -25,8 +25,34 @@
 
   .filter-card {
     margin-bottom: 14px;
+
+    p {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: nowrap;
+      align-items: center;
+    }
   }
 
+  .product-mail {
+    font-size: smaller;
+  }
+
+  .searchbox {
+    padding: 4px 15px;
+    border-radius: 12px;
+    border: 1px solid gray;
+    min-width: 230px;
+  }
+
+  .content {
+    justify-content: flex-start !important;
+  }
+
+}
+
+.load-more {
+  padding: 12px 0px;
 }
 
 ::ng-deep mat-card-header {
@@ -36,5 +62,22 @@
     .mat-card-header-text {
       margin: 0;
     }
+
+    .mat-card-title {
+      font-size: 16px;
+      max-width: 175px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
   }
+}
+
+.fav-product {
+  color: #13c1ac;
+}
+
+.non-fav-product {
+  color: #bdb4b4;
 }

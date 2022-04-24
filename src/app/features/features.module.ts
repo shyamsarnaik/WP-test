@@ -5,10 +5,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductListService } from './product-list/product-list.service';
 import { MaterialModule } from '../material.module';
+import { favouriteProductDialogComponent } from './favourite-product-dialog/favourite-product-dialog.component';
+import { ProductsComponent } from './products/products.component';
 
 @NgModule({
   declarations: [
-    ProductListComponent
+    ProductListComponent,
+    ProductsComponent,
+    favouriteProductDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -17,7 +21,7 @@ import { MaterialModule } from '../material.module';
     MaterialModule
   ],
   exports: [
-    ProductListComponent
+    ProductsComponent
   ],
   providers: [ProductListService]
 })

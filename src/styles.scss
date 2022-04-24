@@ -1,13 +1,52 @@
 /* You can add global styles to this file, and also import other style files */
-@import "~@angular/material/prebuilt-themes/indigo-pink.css"; 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
-.mat-card {
-    box-shadow: 0px 0px 3px #afacac;
-    cursor: pointer;
-    &:hover {
-        box-shadow: 2px 2px 12px grey;
-    }
+html,
+body {
+  height: 100%;
 }
 
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  overflow-y: hidden;
+}
+
+app-header {
+  position: fixed;
+  width: 100%;
+  box-shadow: 0px 0px 6px #afacac;
+  z-index: 1;
+
+  .mat-toolbar {
+    background-color: #13c1ac;
+    color: white;
+  }
+}
+
+.app-container {
+  overflow: auto;
+  max-height: 90vh;
+  padding-top: 64px;
+}
+
+.mat-card.p-card {
+  box-shadow: 0px 0px 3px #afacac;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: 2px 2px 12px grey;
+  }
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.mat-primary {
+  color: #13c1ac;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}

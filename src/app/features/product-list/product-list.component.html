@@ -3,20 +3,38 @@
   <mat-card class="filter-card">
     <mat-card-content>
       <p>
-        <input type="text">
+        <input type="text" placeholder="Search..." #mySearch (input)="searchProduct(mySearch.value)" class="searchbox">
+        <span>
+          <mat-form-field>
+            <mat-label>Sort by: </mat-label>
+            <mat-select (valueChange)="onSortChange($event)">
+              <mat-option *ngFor="let op of sortOptions" [value]="op">
+                {{op}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </span>
       </p>
     </mat-card-content>
   </mat-card>
 
-  <div class="content" fxLayout="row wrap" fxLayoutGap="10px" fxLayoutAlign="flex-start" fxLayout.xs="column"
-    fxLayoutAlign="space-between">
-    <mat-card class="p-card" fxFlex="0 1 calc(25%-10px)" fxFlex.xs="100" *ngFor="let product of products; let i = index"
+  <div class="content" fxLayout="row wrap" fxLayoutGap="10px" fxLayoutAlign="space-between flex-start"
+    fxLayout.xs="column">
+    <mat-card class="p-card" fxFlex="0 1 calc(20%-10px)" fxFlex.xs="100" *ngFor="let product of products; let i = index"
       style="margin:10px 5px">
       <mat-card-header class="p-header">
         <mat-card-title>{{product.title}}</mat-card-title>
-        <mat-card-subtitle class="price">{{product.price}} {{currency}}</mat-card-subtitle>
-        <button mat-icon-button class="favorite-icon" [color]="isproductfav(product) ? 'primary': 'secondary'"
-          (click)="addRemovefavourite(product, i)">
+        <mat-card-subtitle class="price">
+          <div>
+            {{product.price}} {{currency}}
+          </div>
+          <div class="product-mail">
+            Mail: {{product.email}}
+          </div>
+        </mat-card-subtitle>
+        <button mat-icon-button [class]="isproductfavourite(product) ? 'fav-product': 'non-fav-product'"
+          (click)="addRemovefavourite(product, i)" [matTooltip]="tooltip"
+          [matTooltipPosition]="'above'">
           <mat-icon>favorite</mat-icon>
         </button>
       </mat-card-header>
@@ -26,11 +44,13 @@
           {{product.description}}
         </p>
       </mat-card-content>
-      <mat-card-actions>
-        <button mat-button>LIKE</button>
-        <button mat-button>SHARE</button>
-      </mat-card-actions>
     </mat-card>
+  </div>
+
+  <div class="load-more" fxLayoutAlign="space-around" *ngIf="allProducts.length !== products.length && componentType !== 'favorite'">
+    <button mat-stroked-button (click)="loadMore()">
+      Load More...
+    </button>
   </div>
 
 </div>
